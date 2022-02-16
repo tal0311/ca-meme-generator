@@ -20,7 +20,7 @@ function renderGallery() {
     `
   })
 
-  document.querySelector('.gallery').innerHTML = strHTMLs.join('')
+  document.querySelector('.grid-container').innerHTML = strHTMLs.join('')
 }
 
 function onImgSelect(id) {
@@ -28,7 +28,7 @@ function onImgSelect(id) {
   setImg(+id)
 
   // hide gallery
-  let ElGallery = document.querySelector('.grid-container')
+  let ElGallery = document.querySelector('.gallery')
   ElGallery.hidden = true
   memeInit()
 }
