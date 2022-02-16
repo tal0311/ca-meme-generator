@@ -1,3 +1,4 @@
-canvas {
-  background-color: blueviolet;
-}
+/* base */
+@import './base.css';
+/* grid */
+@import './components/grid.css';

@@ -8,22 +8,33 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: 'falafel',
+      txt: 'FIRST LINE',
       size: 20,
       align: 'center',
       color: 'red',
       x: 250,
       y: 50,
     },
+    {
+      txt: 'SECOND LINE',
+      size: 20,
+      align: 'center',
+      color: 'red',
+      x: 250,
+      y: 450,
+    },
   ],
 }
 
 function setMemeColor(userColor) {
-  gMeme.lines[0].color = userColor
+  gMeme.lines[gMeme.selectedLineIdx].color = userColor
+}
+
+function setFontSize(num) {
+  gMeme.lines[gMeme.selectedLineIdx].size += num
 }
 
 function setImg(id) {
-  console.log('set imag')
   gMeme.selectedImgId = id
 }
 

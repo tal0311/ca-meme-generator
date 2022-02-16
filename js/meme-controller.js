@@ -24,7 +24,7 @@ function renderMeme() {
   let img = getImageForDisplay(selectedImgId)
   console.log('img:', img)
   let { url } = img
-  let { txt, size, align, color, x, y } = lines[selectedLineIdx]
+  // let { txt, size, align, color, x, y } = lines[selectedLineIdx]
 
   // render img and text on canvas export
 
@@ -33,7 +33,10 @@ function renderMeme() {
 
   renderImg.onload = () => {
     renderMemeIng(renderImg)
-    drawText(x, y, size, txt, align, color)
+
+    lines.forEach((line) => {
+      drawText(line)
+    })
   }
 }
 
@@ -42,19 +45,18 @@ function renderMemeIng(renderImg) {
   gCtx.drawImage(renderImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function drawText(x, y, size, txt, align, color) {
-  // console.log(x, y, size, txt, align, color)
+function drawText(line) {
+  let { x, y, color, align, txt, size } = line
   // gCtx.lineWidth = 1
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
-  gCtx.font = '32px Arial'
+  gCtx.font = `${size}px Impact`
   gCtx.textAlign = align //align text function
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
 }
 
 function onSetLineText(value, lineId) {
-  console.log('onset line text:', value, lineId)
   setLineTxt(value, lineId)
 
   renderMeme()
@@ -66,6 +68,10 @@ function onColorPIcked(value) {
   renderMeme()
 }
 
+function onchangeFontSize(num) {
+  setFontSize(+num)
+  renderMeme()
+}
 // listeners
 
 function addListeners() {

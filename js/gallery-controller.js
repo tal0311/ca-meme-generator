@@ -13,8 +13,8 @@ function renderGallery() {
 
     return `
     
-      <article data-keyWord1="${keywords[0]}" data-keyWord2="${keywords[1]}" onclick="onImgSelect('${id}')">
-        <img src="${url}" />
+      <article style="background-image: url(${url});" class="grid-item" data-keyWord1="${keywords[0]}" data-keyWord2="${keywords[1]}" onclick="onImgSelect('${id}')">
+                
       </article>
     
     `
@@ -28,6 +28,7 @@ function onImgSelect(id) {
   setImg(+id)
 
   // hide gallery
-  document.querySelector('.gallery').hidden = true
+  let ElGallery = document.querySelector('.grid-container')
+  ElGallery.hidden = true
   memeInit()
 }

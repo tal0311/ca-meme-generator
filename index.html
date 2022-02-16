@@ -21,6 +21,8 @@
         <h4>control panel</h4>
 
         <div class="inputs-container">
+          <button onclick="onchangeFontSize(+1)">+</button>
+          <button onclick="onchangeFontSize(-1)">-</button>
           <input
             type="color"
             name="color"
@@ -30,6 +32,12 @@
             type="text"
             name="line"
             id="0"
+            onchange="onSetLineText(this.value, this.id)"
+          />
+          <input
+            type="text"
+            name="line"
+            id="1"
             onchange="onSetLineText(this.value, this.id)"
           />
         </div>
