@@ -23,6 +23,14 @@ a {
   text-decoration: none;
 }
 
+button,
+input[type='color'] {
+  font-size: 1rem;
+  text-align: center;
+  height: 3.4375rem;
+  width: 3.4375rem;
+}
+
 /* .grid-layout {
   display: grid;
   grid-template-columns: 1fr;

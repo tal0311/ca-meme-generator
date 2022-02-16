@@ -10,5 +10,6 @@
 @import './components/owner.css';
 @import './components/footer.css';
 @import './components/meme-dashboard.css';
+@import './components/control-panel.css';
 /* grid */
 @import './components/grid.css';

@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>meme generator</title>
 
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- my css -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
@@ -34,30 +43,46 @@
       <main class="main gallery">
         <div class="grid-container main-layout"></div>
       </main>
-      <div class="meme-dashboard" hidden>
+      <div class="meme-dashboard main-layout" hidden>
         <div class="meme-container flex">
           <div class="control-panel flex">
-            <h4>control panel</h4>
             <div class="inputs-container">
               <input
                 type="text"
                 name="line"
                 onchange="onSetLineText(this.value)"
               />
-              <button onclick="onchangeFontSize(+1)">A+</button>
-              <button onclick="onchangeFontSize(-1)">A-</button>
-              <button onclick="onchangeLine()">^</button>
-              <button onclick="onRemoveTxt()">clear</button>
-              <button onclick="onTxtAline('left')">left Align</button>
-              <button onclick="onTxtAline('center')">center align</button>
-              <button onclick="onTxtAline('right')">right Align</button>
-              <select>
-                <option value="Ariel" selected>Ariel</option>
-                <option value="Impact">Impact</option>
-                <option value="Roboto">Roboto</option>
-                <option value="Poppins">Poppins</option>
-              </select>
-              <input type="color" name="color" />
+              <div class="first-panel flex">
+                <button
+                  class="fa-solid fa-trash-can"
+                  onclick="onRemoveTxt()"
+                ></button>
+                <button onclick="onchangeLine()">^</button>
+              </div>
+
+              <div class="second-panel flex">
+                <button onclick="onchangeFontSize(+1)">T+</button>
+                <button onclick="onchangeFontSize(-1)">T-</button>
+                <button
+                  class="fa-solid fa-align-left"
+                  onclick="onTxtAline('left')"
+                ></button>
+                <button
+                  class="fa-solid fa-align-justify"
+                  onclick="onTxtAline('center')"
+                ></button>
+                <button
+                  class="fa-solid fa-align-right"
+                  onclick="onTxtAline('right')"
+                ></button>
+                <select>
+                  <option value="Ariel" selected>Ariel</option>
+                  <option value="Impact">Impact</option>
+                  <option value="Roboto">Roboto</option>
+                  <option value="Poppins">Poppins</option>
+                </select>
+                <input type="color" name="color" />
+              </div>
             </div>
           </div>
           <div class="canvas-container">

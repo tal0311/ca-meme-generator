@@ -11,10 +11,39 @@
 }
 
 .control-panel.flex {
+  width: 23.375rem;
+  margin-inline-start: 6.25rem;
   flex-direction: column;
-  margin-inline-start: 30px;
 }
 
 .control-panel.flex input:not([type='color']) {
   width: 100%;
+  font-size: 2rem;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.first-panel.flex {
+  justify-content: center;
+  margin-bottom: 1.6875rem;
+}
+.first-panel.flex > * {
+  margin-inline: 1.125rem;
+}
+
+.second-panel.flex {
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.second-panel.flex > * {
+  margin: 1.125rem;
+}
+
+.second-panel.flex select {
+  border-radius: 10px;
+  width: 13.625rem;
 }
