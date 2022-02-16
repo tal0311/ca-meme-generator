@@ -65,15 +65,13 @@ function getImageForDisplay(idx) {
 
 function setLineTxt(value, keyCode) {
   let txt = gMeme.lines[gMeme.selectedLineIdx].txt
-
+  console.log(keyCode)
   if (keyCode === 8) {
     txt = txt.substring(0, txt.length - 1)
     console.log(txt)
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
-  } else if (keyCode === 13) {
-    console.log('enter')
-    return
-  } else if (keyCode > 65 && keyCode < 90) {
+  } else if (keyCode === 13) return
+  else if ((keyCode > 65 && keyCode < 90) || keyCode === 32) {
     gMeme.lines[gMeme.selectedLineIdx].txt += value
   }
 }

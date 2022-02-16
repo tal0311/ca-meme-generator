@@ -84,13 +84,12 @@ function onchangeFontSize(num) {
   setFontSize(+num)
   renderMeme()
 }
-// listeners
 
 function addListeners() {
   let elColorInput = document.querySelector('input[name="color"]')
   elColorInput.addEventListener('input', (event) => onColorPIcked(event))
 
-  document.addEventListener('keyup', (event) => onSetLineText(event))
+  document.addEventListener('keydown', (event) => onSetLineText(event))
 
   // addMouseListeners()
   // addTouchListeners()
