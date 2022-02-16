@@ -9,16 +9,56 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
-    <h1>meme gen</h1>
+    <div class="grid-layout">
+      <header class="header">
+        <div class="header-container main-layout flex">
+          <h1 class="logo">memegen</h1>
+          <div class="links-container">
+            <a href="#" class="active">gallery</a> |
+            <a href="#">about</a>
+          </div>
+        </div>
+      </header>
+
+      <nav class="nav main-layout flex">
+        <input type="text" name="search" placeholder="enter search term" />
+        <div class="key-words-container">
+          <span>funny</span>
+          <span>comics</span>
+          <span>dog</span>
+          <span>drinks</span>
+          <span>books</span>
+        </div>
+      </nav>
+
+      <main class="main gallery main-layout">
+        <div class="grid-container"></div>
+      </main>
+      <div class="owner main-layout">
+        random person
+        <img src="http://randomuser.me/api/portraits/women/45.jpg" alt="" />
+        <h4>name</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          alias nostrum eligendi facilis deserunt unde molestiae quisquam
+          dolorum quam possimus laboriosam, quasi !
+        </p>
+        <div class="social-icons-container">
+          <small>facebook</small>
+          <small>facebook</small>
+          <small>facebook</small>
+        </div>
+      </div>
+      <div class="footer main-layout">
+        <div class="logo">memeGen</div>
+        <small>coffee right</small>
+      </div>
+    </div>
 
     <!-- meme gallery entry point -->
 
-    <div class="gallery">
-      <div class="grid-container"></div>
-    </div>
-
     <!-- meme dashBoard -->
-    <div class="meme-dashboard">
+    <div class="meme-dashboard" hidden>
       <div class="control-panel">
         <h4>control panel</h4>
 

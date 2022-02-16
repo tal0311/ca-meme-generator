@@ -1,0 +1,11 @@
+nav .nav {
+  font-size: 1.1875rem;
+}
+
+nav > * {
+  margin: 1.125rem 0;
+}
+
+nav.flex {
+  justify-content: space-between;
+}

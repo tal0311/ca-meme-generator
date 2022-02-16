@@ -1,0 +1,21 @@
+.header {
+  background-color: var(--primaryClr);
+}
+
+.header-container.flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding: 1.5rem 0;
+  color: var(--primaryTxtClr);
+}
+
+.links-container > *:not(.active) {
+  color: var(--primaryTxtClr);
+}
+
+.active {
+  color: #000;
+}

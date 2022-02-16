@@ -1,4 +1,10 @@
 /* base */
 @import './base.css';
+@import './helper.css';
+/* vars */
+@import './vars.css';
+/* components */
+@import './components/header.css';
+@import './components/nav.css';
 /* grid */
 @import './components/grid.css';
