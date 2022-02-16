@@ -3,7 +3,9 @@
 var gElCanvas
 var gCtx
 
-function init() {
+// !always render here
+function memeInit() {
+  document.querySelector('.meme-dashboard').hidden = false
   // console.log('init')
   gElCanvas = document.querySelector('canvas')
 
@@ -15,19 +17,20 @@ function init() {
 }
 
 function renderMeme() {
-  // console.log('render meme')
   let meme = getMemeForeDisplay()
+  console.log('meme:', meme)
   let { selectedImgId, selectedLineIdx, lines } = meme
-  let img = getImageForDisplay()
-  let { id, url, keywords } = img
+  console.log('idx:', selectedImgId)
+  let img = getImageForDisplay(selectedImgId)
+  console.log('img:', img)
+  let { url } = img
   let { txt, size, align, color, x, y } = lines[0]
 
-  console.log(txt)
   // render img and text on canvas export
 
   var renderImg = new Image()
   renderImg.src = url
-  renderImg.id = selectedImgId
+
   renderImg.onload = () => {
     renderMemeIng(renderImg)
     drawText(x, y, size, txt, align, color)
@@ -35,6 +38,7 @@ function renderMeme() {
 }
 
 function renderMemeIng(renderImg) {
+  console.log(renderImg)
   gCtx.drawImage(renderImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
@@ -43,7 +47,7 @@ function drawText(x, y, size, txt, align, color) {
   // gCtx.lineWidth = 1
   gCtx.strokeStyle = 'brown'
   gCtx.fillStyle = '#ffff'
-  gCtx.font = '20px Arial'
+  gCtx.font = '32px Arial'
   gCtx.textAlign = align
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)

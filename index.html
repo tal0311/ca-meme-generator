@@ -8,15 +8,15 @@
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body onload="init()">
+  <body onload="onInit()">
     <h1>meme gen</h1>
 
     <!-- meme gallery entry point -->
 
-    <div class="grid-container"></div>
+    <div class="grid-container gallery"></div>
 
     <!-- meme dashBoard -->
-    <div class="meme-dashboard">
+    <div class="meme-dashboard" hidden>
       <div class="control-panel">
         <h4>control panel</h4>
 
@@ -37,6 +37,8 @@
 
     <!-- storage service -->
 
+    <script src="js/service/gallery-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/service/meme-servics.js"></script>
     <script src="js/meme-controller.js"></script>
   </body>
