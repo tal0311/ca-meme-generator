@@ -1,0 +1,26 @@
+.owner img {
+  height: 15rem;
+  width: 37rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.owner {
+  max-width: 56.375rem;
+  margin-top: 4.875rem;
+  margin-bottom: 4.875rem;
+  font-size: 1.25rem;
+}
+
+.owner-content.flex {
+  padding-inline-start: 2.4375rem;
+  flex-direction: column;
+}
+
+.owner-content.flex p {
+  flex: 1;
+}
+
+.owner-content.flex h4 {
+  margin-top: 3.25rem;
+}

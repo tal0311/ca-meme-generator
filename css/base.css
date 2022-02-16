@@ -22,3 +22,42 @@ h6 {
 a {
   text-decoration: none;
 }
+
+/* .grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'header header header'
+    'nav nav nav'
+    'main main main'
+    'main main main'
+    'main main main'
+    'main main main'
+    'owner owner owner'
+    'owner owner owner'
+    'footer footer footer';
+} */
+
+.header {
+  grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.main {
+  max-height: 58.4375rem;
+  grid-area: main;
+}
+
+.owner {
+  grid-area: owner;
+}
+
+.footer {
+  grid-area: footer;
+}

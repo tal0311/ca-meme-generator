@@ -7,8 +7,10 @@
   width: auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  height: 80vh;
+  /* height: 80vh; */
   margin: auto;
+  padding: 1.6875rem;
+  background-color: var(--mainBgClr);
 }
 
 .grid-item {
