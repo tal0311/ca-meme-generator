@@ -3,10 +3,7 @@ function onInit() {
 }
 
 function renderGallery() {
-  console.log('render gallery')
-
   const images = getImagesForGallery()
-
   const strHTMLs = images.map((image) => {
     const { id, url, keywords } = image
 
@@ -24,8 +21,6 @@ function renderGallery() {
 
 function onImgSelect(id) {
   setImg(+id)
-
-  // hide gallery
   let ElGallery = document.querySelector('.gallery')
   ElGallery.hidden = true
   memeInit()

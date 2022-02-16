@@ -35,7 +35,7 @@ function setTxtAlign(value) {
 }
 
 function setLineIdx() {
-  if (gMeme.lines.length > gMeme.selectedLineIdx) {
+  if (gMeme.lines.length - 1 > gMeme.selectedLineIdx) {
     gMeme.selectedLineIdx++
   } else gMeme.selectedLineIdx = 0
 

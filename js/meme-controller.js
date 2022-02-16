@@ -35,7 +35,6 @@ function renderMeme() {
 }
 
 function renderMemeIng(renderImg) {
-  console.log(renderImg)
   gCtx.drawImage(renderImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
@@ -72,9 +71,9 @@ function onSetLineText(value) {
   renderMeme()
 }
 
-function onColorPIcked(value) {
-  const userColor = value
-  setMemeColor(userColor)
+function onColorPIcked(ev) {
+  let value = ev.target.value
+  setMemeColor(value)
   renderMeme()
 }
 
@@ -85,6 +84,8 @@ function onchangeFontSize(num) {
 // listeners
 
 function addListeners() {
+  let elColorInput = document.querySelector('input[name="color"]')
+  elColorInput.addEventListener('input', (event) => onColorPIcked(event))
   // console.log('add listeners')
   // addMouseListeners()
   // addTouchListeners()
