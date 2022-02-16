@@ -26,8 +26,12 @@ var gMeme = {
   ],
 }
 
+function setRemoveTxt() {
+  console.log((gMeme.lines[gMeme.selectedLineIdx].txt = ' '))
+}
+
 function setTxtAlign(value) {
-  console.log(value)
+  gMeme.lines[gMeme.selectedLineIdx].align = value
 }
 
 function setLineIdx() {

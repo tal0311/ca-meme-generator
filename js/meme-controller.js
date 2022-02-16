@@ -9,33 +9,25 @@ function memeInit() {
   document.querySelector('.owner').style.display = 'none'
   document.querySelector('nav').style.display = 'none'
 
-  // console.log('init')
   gElCanvas = document.querySelector('canvas')
 
-  // console.log('canvas loaded')
   gCtx = gElCanvas.getContext('2d')
-  // console.log(gElCanvas)
+
   addListeners()
   renderMeme()
 }
 
 function renderMeme() {
   let meme = getMemeForeDisplay()
-  console.log('meme:', meme)
   let { selectedImgId, selectedLineIdx, lines } = meme
-  console.log('idx:', selectedImgId)
   let img = getImageForDisplay(selectedImgId)
-  console.log('img:', img)
   let { url } = img
 
   // render img and text on canvas export
-
   var renderImg = new Image()
   renderImg.src = url
-
   renderImg.onload = () => {
     renderMemeIng(renderImg)
-
     lines.forEach((line) => {
       drawText(line)
     })
@@ -53,9 +45,14 @@ function drawText(line) {
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
   gCtx.font = `${size}px Impact`
-  gCtx.textAlign = align //align text function
-  gCtx.fillText(txt, x, y)
-  gCtx.strokeText(txt, x, y)
+  gCtx.textAlign = align
+  gCtx.fillText(txt, x, y, gElCanvas.width)
+  gCtx.strokeText(txt, x, y, gElCanvas.width)
+}
+
+function onRemoveTxt() {
+  setRemoveTxt()
+  renderMeme()
 }
 
 function onchangeLine() {
@@ -66,10 +63,11 @@ function onTxtAline(value) {
   console.log(gMeme.selectedLineIdx)
   console.log(value)
   setTxtAlign(value)
+  renderMeme()
 }
 
-function onSetLineText(value, lineId) {
-  setLineTxt(value, lineId)
+function onSetLineText(value) {
+  setLineTxt(value)
 
   renderMeme()
 }

@@ -6,7 +6,6 @@ function renderGallery() {
   console.log('render gallery')
 
   const images = getImagesForGallery()
-  console.log(images)
 
   const strHTMLs = images.map((image) => {
     const { id, url, keywords } = image
@@ -24,7 +23,6 @@ function renderGallery() {
 }
 
 function onImgSelect(id) {
-  console.log(id)
   setImg(+id)
 
   // hide gallery
