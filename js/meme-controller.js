@@ -48,3 +48,8 @@ function drawText(x, y, size, txt, align, color) {
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
 }
+
+function onSetLineText(value, id) {
+  console.log('onset line text:', value, id)
+  setLineTxt(value, id)
+}

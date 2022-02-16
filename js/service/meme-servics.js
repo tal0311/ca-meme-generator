@@ -3,7 +3,7 @@
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['trump', 'politics'] }]
 
-var CurrMemeIdx = 0
+var gCurrMemeIdx = 0
 
 var gMeme = {
   selectedImgId: 1,
@@ -25,5 +25,13 @@ function getMemeForeDisplay() {
 
 function setCurrMemeIdx() {}
 function getImageForDisplay() {
-  return gImgs[CurrMemeIdx]
+  return gImgs[gCurrMemeIdx]
+}
+
+function setLineTxt(value, id) {
+  console.log(value, id)
+}
+
+function setMemeIdx() {
+  console.log('change meme idx')
 }
