@@ -65,14 +65,17 @@ function onTxtAline(value) {
   renderMeme()
 }
 
-function onSetLineText(value) {
-  setLineTxt(value)
+function onSetLineText(ev) {
+  let value = ev.key
+  let KeyCode = ev.keyCode
+  setLineTxt(value, KeyCode)
 
   renderMeme()
 }
 
 function onColorPIcked(ev) {
   let value = ev.target.value
+
   setMemeColor(value)
   renderMeme()
 }
@@ -86,7 +89,9 @@ function onchangeFontSize(num) {
 function addListeners() {
   let elColorInput = document.querySelector('input[name="color"]')
   elColorInput.addEventListener('input', (event) => onColorPIcked(event))
-  // console.log('add listeners')
+
+  document.addEventListener('keyup', (event) => onSetLineText(event))
+
   // addMouseListeners()
   // addTouchListeners()
   // window.addEventListener('resize', () => {
