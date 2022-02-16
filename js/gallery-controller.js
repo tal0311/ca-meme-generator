@@ -25,7 +25,7 @@ function renderGallery() {
 
 function onImgSelect(id) {
   console.log(id)
-  setImg(id)
+  setImg(+id)
 
   // hide gallery
   document.querySelector('.gallery').hidden = true

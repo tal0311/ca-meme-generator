@@ -24,7 +24,7 @@ function renderMeme() {
   let img = getImageForDisplay(selectedImgId)
   console.log('img:', img)
   let { url } = img
-  let { txt, size, align, color, x, y } = lines[0]
+  let { txt, size, align, color, x, y } = lines[selectedLineIdx]
 
   // render img and text on canvas export
 
@@ -45,10 +45,10 @@ function renderMemeIng(renderImg) {
 function drawText(x, y, size, txt, align, color) {
   // console.log(x, y, size, txt, align, color)
   // gCtx.lineWidth = 1
-  gCtx.strokeStyle = 'brown'
-  gCtx.fillStyle = '#ffff'
+  gCtx.strokeStyle = 'black'
+  gCtx.fillStyle = color
   gCtx.font = '32px Arial'
-  gCtx.textAlign = align
+  gCtx.textAlign = align //align text function
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
 }
@@ -57,6 +57,12 @@ function onSetLineText(value, lineId) {
   console.log('onset line text:', value, lineId)
   setLineTxt(value, lineId)
 
+  renderMeme()
+}
+
+function onColorPIcked(value) {
+  const userColor = value
+  setMemeColor(userColor)
   renderMeme()
 }
 

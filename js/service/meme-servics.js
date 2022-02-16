@@ -10,12 +10,16 @@ var gMeme = {
     {
       txt: 'falafel',
       size: 20,
-      align: 'left',
+      align: 'center',
       color: 'red',
-      x: 50,
+      x: 250,
       y: 50,
     },
   ],
+}
+
+function setMemeColor(userColor) {
+  gMeme.lines[0].color = userColor
 }
 
 function setImg(id) {
@@ -28,8 +32,8 @@ function getMemeForeDisplay() {
 }
 
 function getImageForDisplay(idx) {
-  console.log(+idx)
-  return gImgs[+idx]
+  let img = gImgs.find((img) => img.id === idx)
+  return img
 }
 
 function setLineTxt(value, lineId) {
