@@ -34,7 +34,42 @@
       <main class="main gallery">
         <div class="grid-container main-layout"></div>
       </main>
-      <div class="owner main-layout flex">
+      <div class="meme-dashboard" hidden>
+        <div class="meme-container flex">
+          <div class="control-panel flex">
+            <h4>control panel</h4>
+            <div class="inputs-container">
+              <input
+                type="text"
+                name="line"
+                id="0"
+                onchange="onSetLineText(this.value, this.id)"
+              />
+              <input
+                type="text"
+                name="line"
+                id="1"
+                onchange="onSetLineText(this.value, this.id)"
+              />
+              <button onclick="onchangeFontSize(+1)">A+</button>
+              <button onclick="onchangeFontSize(-1)">A-</button>
+              <button onclick="onRemoveText()">clear</button>
+              <button onclick="onTxtAline('left')">left Align</button>
+              <button onclick="onTxtAline('center')">center align</button>
+              <button onclick="onTxtAline('right')">right Align</button>
+              <input
+                type="color"
+                name="color"
+                onchange="onColorPIcked(this.value)"
+              />
+            </div>
+          </div>
+          <div class="canvas-container">
+            <canvas height="500px" width="500px"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="owner main-layout flex" hidden>
         <img src="./img/tal-profile.jpg" alt="" />
         <div class="owner-content flex">
           <h4>Tal Amit</h4>
@@ -61,37 +96,6 @@
     <!-- meme gallery entry point -->
 
     <!-- meme dashBoard -->
-    <div class="meme-dashboard" hidden>
-      <div class="control-panel">
-        <h4>control panel</h4>
-
-        <div class="inputs-container">
-          <button onclick="onchangeFontSize(+1)">+</button>
-          <button onclick="onchangeFontSize(-1)">-</button>
-          <input
-            type="color"
-            name="color"
-            onchange="onColorPIcked(this.value)"
-          />
-          <input
-            type="text"
-            name="line"
-            id="0"
-            onchange="onSetLineText(this.value, this.id)"
-          />
-          <input
-            type="text"
-            name="line"
-            id="1"
-            onchange="onSetLineText(this.value, this.id)"
-          />
-        </div>
-      </div>
-
-      <div class="canvas-container">
-        <canvas height="500px" width="500px"></canvas>
-      </div>
-    </div>
 
     <!-- storage service -->
 

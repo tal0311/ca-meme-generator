@@ -6,6 +6,9 @@ var gCtx
 // !always render here
 function memeInit() {
   document.querySelector('.meme-dashboard').hidden = false
+  document.querySelector('.owner').style.display = 'none'
+  document.querySelector('nav').style.display = 'none'
+
   // console.log('init')
   gElCanvas = document.querySelector('canvas')
 

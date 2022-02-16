@@ -1,0 +1,20 @@
+.meme-dashboard {
+  padding: 30px;
+}
+
+.meme-dashboard.flex {
+  flex-direction: row;
+}
+
+.meme-container.flex {
+  flex-direction: row-reverse;
+}
+
+.control-panel.flex {
+  flex-direction: column;
+  margin-inline-start: 30px;
+}
+
+.control-panel.flex input:not([type='color']) {
+  width: 100%;
+}
