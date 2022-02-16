@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body onload="init()">
     <h1>meme gen</h1>
 
     <!-- meme gallery entry point -->
@@ -16,7 +16,15 @@
     <div class="grid-container"></div>
 
     <!-- meme dashBoard -->
-    <div class="meme-dashboard" hidden></div>
+    <div class="meme-dashboard">
+      <div class="control-panel">
+        <h4>control panel</h4>
+      </div>
+
+      <div class="canvas-container">
+        <canvas height="500px" width="500px"></canvas>
+      </div>
+    </div>
 
     <!-- storage service -->
 
