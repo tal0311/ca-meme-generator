@@ -9,7 +9,7 @@ var gMeme = {
   lines: [
     {
       txt: 'FIRST LINE',
-      size: 20,
+      size: 45,
       align: 'center',
       color: 'red',
       x: 250,
@@ -17,13 +17,25 @@ var gMeme = {
     },
     {
       txt: 'SECOND LINE',
-      size: 20,
+      size: 35,
       align: 'center',
       color: 'red',
       x: 250,
       y: 450,
     },
   ],
+}
+
+function setTxtAlign(value) {
+  console.log(value)
+}
+
+function setLineIdx() {
+  if (gMeme.lines.length > gMeme.selectedLineIdx) {
+    gMeme.selectedLineIdx++
+  } else gMeme.selectedLineIdx = 0
+
+  console.log(gMeme.selectedLineIdx)
 }
 
 function setMemeColor(userColor) {
@@ -47,8 +59,8 @@ function getImageForDisplay(idx) {
   return img
 }
 
-function setLineTxt(value, lineId) {
-  gMeme.lines[lineId].txt = value
+function setLineTxt(value) {
+  gMeme.lines[gMeme.selectedLineIdx].txt = value
 }
 
 function setMemeIdx() {

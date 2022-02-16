@@ -27,7 +27,6 @@ function renderMeme() {
   let img = getImageForDisplay(selectedImgId)
   console.log('img:', img)
   let { url } = img
-  // let { txt, size, align, color, x, y } = lines[selectedLineIdx]
 
   // render img and text on canvas export
 
@@ -57,6 +56,16 @@ function drawText(line) {
   gCtx.textAlign = align //align text function
   gCtx.fillText(txt, x, y)
   gCtx.strokeText(txt, x, y)
+}
+
+function onchangeLine() {
+  setLineIdx()
+}
+
+function onTxtAline(value) {
+  console.log(gMeme.selectedLineIdx)
+  console.log(value)
+  setTxtAlign(value)
 }
 
 function onSetLineText(value, lineId) {

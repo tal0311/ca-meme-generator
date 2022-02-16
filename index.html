@@ -42,21 +42,21 @@
               <input
                 type="text"
                 name="line"
-                id="0"
-                onchange="onSetLineText(this.value, this.id)"
-              />
-              <input
-                type="text"
-                name="line"
-                id="1"
-                onchange="onSetLineText(this.value, this.id)"
+                onchange="onSetLineText(this.value)"
               />
               <button onclick="onchangeFontSize(+1)">A+</button>
               <button onclick="onchangeFontSize(-1)">A-</button>
+              <button onclick="onchangeLine()">^</button>
               <button onclick="onRemoveText()">clear</button>
               <button onclick="onTxtAline('left')">left Align</button>
               <button onclick="onTxtAline('center')">center align</button>
               <button onclick="onTxtAline('right')">right Align</button>
+              <select>
+                <option value="Ariel" selected>ariel</option>
+                <option value="Impact">Saab</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Poppins">Poppins</option>
+              </select>
               <input
                 type="color"
                 name="color"
