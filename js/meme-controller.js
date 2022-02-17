@@ -124,10 +124,10 @@ function addListeners() {
 
   addMouseListeners()
   addTouchListeners()
-  window.addEventListener('resize', () => {
-    resizeCanvas()
-    renderCanvas()
-  })
+  // window.addEventListener('resize', () => {
+  //   resizeCanvas()
+  //   renderMeme()
+  // })
 }
 
 function addMouseListeners() {
@@ -186,3 +186,15 @@ function getEvPos(ev) {
 
   return pos
 }
+
+function downloadImg(elLink) {
+  var imgContent = gElCanvas.toDataURL('image/jpeg')
+  elLink.href = imgContent
+}
+
+// function resizeCanvas() {
+//   const elContainer = document.querySelector('.canvas-container')
+//   gElCanvas.width = elContainer.offsetWidth
+//   gElCanvas.height = elContainer.offsetHeight
+//   console.log(gElCanvas.width, elContainer.offsetWidth)
+// }
