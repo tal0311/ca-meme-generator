@@ -30,7 +30,6 @@ nav .random-meme {
   transform: translateY(-150%);
   opacity: 0;
 }
-
 .search-container input:focus {
   outline: none;
 }

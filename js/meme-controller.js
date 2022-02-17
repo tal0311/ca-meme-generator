@@ -3,6 +3,7 @@
 var gElCanvas
 var gCtx
 var gStartPos
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 // !always render here
 function memeInit() {
   document.querySelector('.meme-dashboard').hidden = false
@@ -122,11 +123,11 @@ function addListeners() {
   )
 
   addMouseListeners()
-  // addTouchListeners()
-  // window.addEventListener('resize', () => {
-  //   resizeCanvas()
-  //   renderCanvas()
-  // })
+  addTouchListeners()
+  window.addEventListener('resize', () => {
+    resizeCanvas()
+    renderCanvas()
+  })
 }
 
 function addMouseListeners() {
@@ -135,11 +136,11 @@ function addMouseListeners() {
   gElCanvas.addEventListener('mouseup', onUp)
 }
 
-// function addTouchListeners() {
-//   gElCanvas.addEventListener('touchmove', onMove)
-//   gElCanvas.addEventListener('touchstart', onDown)
-//   gElCanvas.addEventListener('touchend', onUp)
-// }
+function addTouchListeners() {
+  gElCanvas.addEventListener('touchmove', onMove)
+  gElCanvas.addEventListener('touchstart', onDown)
+  gElCanvas.addEventListener('touchend', onUp)
+}
 
 // drag & drop controller function
 function onDown(ev) {
@@ -174,14 +175,14 @@ function getEvPos(ev) {
     x: ev.offsetX,
     y: ev.offsetY,
   }
-  // if (gTouchEvs.includes(ev.type)) {
-  //   ev.preventDefault()
-  //   ev = ev.changedTouches[0]
-  //   pos = {
-  //     x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-  //     y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-  //   }
-  // }
+  if (gTouchEvs.includes(ev.type)) {
+    ev.preventDefault()
+    ev = ev.changedTouches[0]
+    pos = {
+      x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+    }
+  }
 
   return pos
 }
