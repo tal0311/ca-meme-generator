@@ -37,7 +37,7 @@ function renderDataList() {
 function onImgSelect(id) {
   setImg(+id)
   let ElGallery = document.querySelector('.gallery')
-  ElGallery.hidden = true
+  ElGallery.style.display = 'none'
   memeInit()
 }
 
@@ -47,10 +47,6 @@ function onDataListSort(value) {
 }
 
 function onImFlexible() {
-  console.log('flexible')
-
   let meme = getRandomMeme()
-  console.log('meme:', meme)
-
   onImgSelect(meme.id)
 }
