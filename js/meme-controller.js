@@ -39,11 +39,11 @@ function renderMemeIng(renderImg) {
 }
 
 function drawText(line) {
-  let { x, y, color, align, txt, size } = line
+  let { x, y, color, align, txt, size, fontFamily } = line
   // gCtx.lineWidth = 1
   gCtx.strokeStyle = 'black'
   gCtx.fillStyle = color
-  gCtx.font = `${size}px Impact`
+  gCtx.font = `${size}px ${fontFamily}`
   gCtx.textAlign = align
   gCtx.fillText(txt, x, y, gElCanvas.width)
   gCtx.strokeText(txt, x, y, gElCanvas.width)
@@ -99,6 +99,11 @@ function onColorPIcked(ev) {
   setMemeColor(value)
   renderMeme()
 }
+function onChangeFontFamily(value) {
+  console.log(value)
+  setFontFamily(value)
+  renderMeme()
+}
 
 function onchangeFontSize(num) {
   setFontSize(+num)
@@ -110,6 +115,10 @@ function addListeners() {
   elColorInput.addEventListener('input', (event) => onColorPIcked(event))
 
   document.addEventListener('keydown', (event) => onSetLineText(event))
+  let elSelection = document.querySelector('.font-style')
+  elSelection.addEventListener('change', (event) =>
+    onChangeFontFamily(event.target.value)
+  )
 
   addMouseListeners()
   // addTouchListeners()

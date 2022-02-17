@@ -22,8 +22,6 @@ function renderGallery() {
 
 function renderDataList() {
   let options = getOptionsForData()
-  console.log('options:', options)
-
   const strHTMLs = options
     .map((option) => {
       return `

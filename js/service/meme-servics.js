@@ -42,6 +42,11 @@ function setMemeColor(userColor) {
   gMeme.lines[gMeme.selectedLineIdx].color = userColor
 }
 
+function setFontFamily(value) {
+  let line = gMeme.lines[gMeme.selectedLineIdx]
+  line.fontFamily = value
+}
+
 function setFontSize(num) {
   gMeme.lines[gMeme.selectedLineIdx].size += num
 }
@@ -117,7 +122,6 @@ function getLien() {
 function moveLine(line, dx, dy) {
   line.x += dx
   line.y += dy
-  console.log('line xy:', line.x, line.y)
 }
 
 function _saveMemeToStorage(key, val) {
