@@ -2,6 +2,13 @@
   .main-layout {
     max-width: 480px;
   }
+
+  .header-container.flex {
+    flex-direction: column;
+  }
+  .header-container.flex.links-container {
+    padding-bottom: 2rem;
+  }
   .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
@@ -39,7 +46,7 @@
   .grid-layout {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4.125rem 5.625rem 58.25rem 28.625rem 12.9375rem;
+    grid-template-rows: 10rem 5.625rem 58.25rem 28.625rem 12.9375rem;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -120,7 +127,7 @@
   .grid-layout {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4.125rem 5.625rem 58.25rem 28.625rem 12.9375rem;
+    grid-template-rows: 6.125rem 5.625rem 58.25rem 28.625rem 12.9375rem;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:

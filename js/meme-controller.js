@@ -8,6 +8,7 @@ function memeInit() {
   document.querySelector('.meme-dashboard').hidden = false
   document.querySelector('.owner').style.display = 'none'
   document.querySelector('nav').style.display = 'none'
+  document.querySelector('.gallery-active').classList.remove('active')
 
   gElCanvas = document.querySelector('canvas')
 

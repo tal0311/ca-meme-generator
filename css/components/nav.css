@@ -17,3 +17,20 @@ nav .random-meme {
   width: 5rem;
   color: #ffff;
 }
+
+.search-container input {
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding-top: 2rem;
+}
+
+.search-container input:focus::placeholder {
+  transition: 0.3s ease;
+  transform: translateY(-150%);
+  opacity: 0;
+}
+
+.search-container input:focus {
+  outline: none;
+}

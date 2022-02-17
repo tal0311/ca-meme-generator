@@ -23,7 +23,7 @@
         <div class="header-container main-layout flex">
           <h1 class="logo">memegen</h1>
           <div class="links-container">
-            <a href="#" class="active">gallery</a> |
+            <a href="#" class="gallery-active active">gallery</a> |
             <a href="#">about</a>
           </div>
         </div>
@@ -32,10 +32,9 @@
       <!-- nav -->
       <nav class="nav main-layout flex">
         <div class="search-container">
-          <input type="text" name="search" placeholder="enter search term" />
           <input
             list="key-words-container"
-            placeholder="topic"
+            placeholder="search by topic"
             onchange="onDataListSort(value)"
           />
           <datalist id="key-words-container"> </datalist>
@@ -43,13 +42,6 @@
         <button class="random-meme" onclick="onImFlexible()">
           im flexible
         </button>
-
-        <div class="word-cloud">
-          <span>kgsdfv</span>
-          <span>kgsdfv</span>
-          <span>kgsdfv</span>
-          <span>kgsdfv</span>
-        </div>
 
         <!-- data list -->
       </nav>
