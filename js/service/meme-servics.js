@@ -1,7 +1,8 @@
 'use strict'
 
-// var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
-// var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['trump', 'politics'] }]
+const gMemeStorageKey = 'Memes'
+
+const gMemes = []
 
 var gMeme = {
   selectedImgId: 1,
@@ -16,6 +17,11 @@ var gMeme = {
       y: 50,
     },
   ],
+}
+
+function setMemeToSave() {
+  gMemes.push(gMeme)
+  _saveMemeToStorage(gMemeStorageKey, gMemes)
 }
 
 function setRemoveTxt() {
@@ -55,10 +61,10 @@ function getImageForDisplay(idx) {
 
 function setLineTxt(value, keyCode) {
   let txt = gMeme.lines[gMeme.selectedLineIdx].txt
-  console.log(keyCode)
+
   if (keyCode === 8) {
     txt = txt.substring(0, txt.length - 1)
-    console.log(txt)
+
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
   } else if (keyCode === 13) return
   else if ((keyCode > 65 && keyCode < 90) || keyCode === 32) {
@@ -112,4 +118,8 @@ function moveLine(line, dx, dy) {
   line.x += dx
   line.y += dy
   console.log('line xy:', line.x, line.y)
+}
+
+function _saveMemeToStorage(key, val) {
+  saveToStorage(key, val)
 }

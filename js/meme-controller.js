@@ -49,6 +49,10 @@ function drawText(line) {
   gCtx.strokeText(txt, x, y, gElCanvas.width)
 }
 
+function onSaveMeme() {
+  setMemeToSave()
+}
+
 function onAddLIne() {
   creatLine()
   renderMeme()
