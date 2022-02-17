@@ -24,3 +24,9 @@
 .owner-content.flex h4 {
   margin-top: 3.25rem;
 }
+
+.fa-brands {
+  font-size: 2.43rem;
+  margin-inline-end: 3px;
+  color: var(--primaryClr);
+}
