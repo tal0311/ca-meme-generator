@@ -31,3 +31,10 @@ function getImagesForGallery() {
 // }
 
 // function getImg(){
+
+function getRandomMeme() {
+  let idx = getRandomInt(0, gImgs.length - 1)
+
+  let meme = gImgs.find((img) => img.id === idx)
+  return meme
+}

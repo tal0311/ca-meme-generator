@@ -25,3 +25,12 @@ function onImgSelect(id) {
   ElGallery.hidden = true
   memeInit()
 }
+
+function onImFlexible() {
+  console.log('flexible')
+
+  let meme = getRandomMeme()
+  console.log('meme:', meme)
+
+  onImgSelect(meme.id)
+}

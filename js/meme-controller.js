@@ -2,7 +2,7 @@
 
 var gElCanvas
 var gCtx
-
+var gStartPos
 // !always render here
 function memeInit() {
   document.querySelector('.meme-dashboard').hidden = false
@@ -19,7 +19,7 @@ function memeInit() {
 
 function renderMeme() {
   let meme = getMemeForeDisplay()
-  let { selectedImgId, selectedLineIdx, lines } = meme
+  let { selectedImgId, lines } = meme
   let img = getImageForDisplay(selectedImgId)
   let { url } = img
 
@@ -49,6 +49,11 @@ function drawText(line) {
   gCtx.strokeText(txt, x, y, gElCanvas.width)
 }
 
+function onAddLIne() {
+  creatLine()
+  renderMeme()
+}
+
 function onRemoveTxt() {
   setRemoveTxt()
   renderMeme()
@@ -56,11 +61,21 @@ function onRemoveTxt() {
 
 function onchangeLine() {
   setLineIdx()
+  // let line = getLien()
+  // focusOnline(line)
+  //  renderMeme()
+}
+
+// !dont work
+function focusOnline(line) {
+  let { x, y, txt, size } = line
+  let width = txt.length * size
+  console.log(line)
+  gCtx.fillStyle = '#c2c2c2'
+  gCtx.fillRect(x - width, y - 100, x + 10, y + 20)
 }
 
 function onTxtAline(value) {
-  console.log(gMeme.selectedLineIdx)
-  console.log(value)
   setTxtAlign(value)
   renderMeme()
 }
@@ -91,7 +106,7 @@ function addListeners() {
 
   document.addEventListener('keydown', (event) => onSetLineText(event))
 
-  // addMouseListeners()
+  addMouseListeners()
   // addTouchListeners()
   // window.addEventListener('resize', () => {
   //   resizeCanvas()
@@ -99,14 +114,59 @@ function addListeners() {
   // })
 }
 
-// function addMouseListeners() {
-//   gElCanvas.addEventListener('mousemove', onMove)
-//   gElCanvas.addEventListener('mousedown', onDown)
-//   gElCanvas.addEventListener('mouseup', onUp)
-// }
+function addMouseListeners() {
+  gElCanvas.addEventListener('mousemove', onMove)
+  gElCanvas.addEventListener('mousedown', onDown)
+  gElCanvas.addEventListener('mouseup', onUp)
+}
 
 // function addTouchListeners() {
 //   gElCanvas.addEventListener('touchmove', onMove)
 //   gElCanvas.addEventListener('touchstart', onDown)
 //   gElCanvas.addEventListener('touchend', onUp)
 // }
+
+// drag & drop controller function
+function onDown(ev) {
+  const pos = getEvPos(ev)
+
+  if (!isLineClicked(pos)) return
+  setLineDrag(true)
+  gStartPos = pos
+  document.body.style.cursor = 'grabbing'
+}
+
+function onMove(ev) {
+  const line = getLien()
+  if (line.isDrag) {
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(line, dx, dy)
+    gStartPos = pos
+    renderMeme()
+  }
+}
+
+function onUp() {
+  setLineDrag(false)
+  document.body.style.cursor = 'grab'
+}
+
+// get pos of event
+function getEvPos(ev) {
+  var pos = {
+    x: ev.offsetX,
+    y: ev.offsetY,
+  }
+  // if (gTouchEvs.includes(ev.type)) {
+  //   ev.preventDefault()
+  //   ev = ev.changedTouches[0]
+  //   pos = {
+  //     x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+  //     y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+  //   }
+  // }
+
+  return pos
+}

@@ -8,20 +8,12 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: 'FIRST LINE',
+      txt: 'NEW LINE',
       size: 45,
       align: 'center',
       color: 'red',
       x: 250,
       y: 50,
-    },
-    {
-      txt: 'SECOND LINE',
-      size: 35,
-      align: 'center',
-      color: 'red',
-      x: 250,
-      y: 450,
     },
   ],
 }
@@ -38,8 +30,6 @@ function setLineIdx() {
   if (gMeme.lines.length - 1 > gMeme.selectedLineIdx) {
     gMeme.selectedLineIdx++
   } else gMeme.selectedLineIdx = 0
-
-  console.log(gMeme.selectedLineIdx)
 }
 
 function setMemeColor(userColor) {
@@ -78,4 +68,48 @@ function setLineTxt(value, keyCode) {
 
 function setMemeIdx() {
   console.log('change meme idx')
+}
+
+function creatLine() {
+  let line = {
+    txt: 'NEW LINE',
+    size: 45,
+    align: 'center',
+    color: 'red',
+    x: 250,
+    y: getRandomPosLine(0, gElCanvas.height),
+    isDrag: true,
+  }
+
+  gMeme.lines.push(line)
+  console.log(gMeme.lines)
+}
+
+function getRandomPosLine(min, max) {
+  return getRandomInt(min, max)
+}
+
+// drag & drop service functions
+function isLineClicked(clickedPos) {
+  let currLine = gMeme.lines[gMeme.selectedLineIdx]
+  const { x, y } = currLine
+  const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
+
+  return distance <= currLine.size + currLine.txt.length
+}
+
+function setLineDrag(isDrag) {
+  gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+
+function getLien() {
+  const currLine = gMeme.lines[gMeme.selectedLineIdx]
+  // console.log('curr line:', currLine)
+  return currLine
+}
+
+function moveLine(line, dx, dy) {
+  line.x += dx
+  line.y += dy
+  console.log('line xy:', line.x, line.y)
 }
