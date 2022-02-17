@@ -30,17 +30,27 @@
       </header>
 
       <nav class="nav main-layout flex">
-        <input type="text" name="search" placeholder="enter search term" />
+        <div class="search-container">
+          <input type="text" name="search" placeholder="enter search term" />
+          <input
+            list="key-words-container"
+            placeholder="topic"
+            onchange="onDataListSort(value)"
+          />
+          <datalist id="key-words-container"> </datalist>
+        </div>
         <button class="random-meme" onclick="onImFlexible()">
           im flexible
         </button>
-        <div class="key-words-container">
-          <span>funny</span>
-          <span>comics</span>
-          <span>dog</span>
-          <span>drinks</span>
-          <span>books</span>
+
+        <div class="word-cloud">
+          <span>kgsdfv</span>
+          <span>kgsdfv</span>
+          <span>kgsdfv</span>
+          <span>kgsdfv</span>
         </div>
+
+        <!-- data list -->
       </nav>
 
       <main class="main gallery">
@@ -50,11 +60,7 @@
         <div class="meme-container flex">
           <div class="control-panel flex">
             <div class="inputs-container">
-              <input
-                type="text"
-                name="line"
-                onchange="onSetLineText(this.value)"
-              />
+              <input type="text" name="line" />
               <div class="first-panel flex">
                 <button onclick="onAddLIne()">+</button>
                 <button
@@ -86,7 +92,11 @@
                   <option value="Poppins">Poppins</option>
                 </select>
                 <input type="color" name="color" />
-                <button onclick="onSaveMeme()">save</button>
+                <button
+                  title="save to local storage"
+                  class="save fa-solid fa-sd-card"
+                  onclick="onSaveMeme()"
+                ></button>
               </div>
             </div>
           </div>

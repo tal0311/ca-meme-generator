@@ -1,5 +1,6 @@
 function onInit() {
   renderGallery()
+  renderDataList()
 }
 
 function renderGallery() {
@@ -19,11 +20,30 @@ function renderGallery() {
   document.querySelector('.grid-container').innerHTML = strHTMLs.join('')
 }
 
+function renderDataList() {
+  let options = getOptionsForData()
+  console.log('options:', options)
+
+  const strHTMLs = options
+    .map((option) => {
+      return `
+          <option value="${option}">${option}</option>
+          `
+    })
+    .join('')
+
+  document.querySelector('#key-words-container').innerHTML = strHTMLs
+}
 function onImgSelect(id) {
   setImg(+id)
   let ElGallery = document.querySelector('.gallery')
   ElGallery.hidden = true
   memeInit()
+}
+
+function onDataListSort(value) {
+  setSortBy(value)
+  renderGallery()
 }
 
 function onImFlexible() {

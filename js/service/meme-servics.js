@@ -67,14 +67,14 @@ function setLineTxt(value, keyCode) {
 
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
   } else if (keyCode === 13) return
-  else if ((keyCode > 65 && keyCode < 90) || keyCode === 32) {
+  else if ((keyCode >= 65 && keyCode <= 90) || keyCode === 32) {
     gMeme.lines[gMeme.selectedLineIdx].txt += value
   }
 }
 
-function setMemeIdx() {
-  console.log('change meme idx')
-}
+// function setMemeIdx() {
+//   console.log('change meme idx')
+// }
 
 function creatLine() {
   let line = {

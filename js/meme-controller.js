@@ -50,6 +50,7 @@ function drawText(line) {
 }
 
 function onSaveMeme() {
+  alert('saved to local storage')
   setMemeToSave()
 }
 
