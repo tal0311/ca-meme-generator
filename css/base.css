@@ -7,6 +7,7 @@ html {
 }
 
 body {
+  font-family: montserrat-regular;
   overflow-x: hidden;
   margin: 0;
 }
@@ -17,6 +18,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: montserrat-bold;
   margin: 0;
 }
 
@@ -31,53 +33,12 @@ input[type='color'] {
   height: 3.4375rem;
   width: 3.4375rem;
 }
-/* 
-.grid-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 4.125rem 5.625rem 58.25rem 28.625rem 12.9375rem;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'header header header'
-    'nav nav nav'
-    'main main main'
-    'owner owner owner'
-    'footer footer footer';
-}
-
-.header {
-  background-color: var(--primaryClr);
-  grid-area: header;
-}
-
-
-.nav {
-  grid-area: nav;
-}
-
-.nav.main-layout {
-  width: 100%;
-}
-
-.main {
-  display: block;
-  background-color: var(--mainBgClr);
-
-  grid-area: main;
-}
-
-.owner {
-  grid-area: owner;
-}
-
-
-.footer {
-  background-color: var(--primaryClr);
-  grid-area: footer;
-} */
 
 button {
   font-size: 2rem;
   font-family: inherit;
+}
+
+.logo {
+  font-family: eczar;
 }
