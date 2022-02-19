@@ -267,6 +267,10 @@ function onTakePhoto() {
   console.log(video)
 }
 
+function onShare() {
+  uploadImg()
+}
+
 // function resizeCanvas() {
 //   const elContainer = document.querySelector('.canvas-container')
 //   gElCanvas.width = elContainer.offsetWidth

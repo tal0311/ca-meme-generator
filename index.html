@@ -101,6 +101,11 @@
                 <button onclick="onUseCamera()">
                   <i class="fa-solid fa-image-portrait"></i>
                 </button>
+                <button
+                  class="share-btn fa-solid fa-share-nodes"
+                  onclick="onShare()"
+                ></button>
+                <div class="share-container"></div>
               </div>
             </div>
             <div class="video-container">
@@ -155,6 +160,7 @@
     <script src="/js/service/storage-service.js"></script>
     <script src="js/service/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
+    <script src="js/service/upload-service.js"></script>
     <script src="js/service/meme-servics.js"></script>
     <script src="js/meme-controller.js"></script>
   </body>
