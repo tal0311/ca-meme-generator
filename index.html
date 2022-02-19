@@ -98,11 +98,21 @@
                   >Download <br />
                   as jpeg</a
                 >
+                <button onclick="onUseCamera()">
+                  <i class="fa-solid fa-image-portrait"></i>
+                </button>
               </div>
+            </div>
+            <div class="video-container">
+              <video id="video" width="200px" height="200px"></video>
+              <button
+                class="take-photo fa-solid fa-camera"
+                onclick="onTakePhoto()"
+              ></button>
             </div>
           </div>
           <div class="canvas-container">
-            <canvas height="400px" width="400px"></canvas>
+            <canvas height="400px" width="400px" autoplay></canvas>
           </div>
         </div>
       </div>

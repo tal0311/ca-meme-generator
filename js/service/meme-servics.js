@@ -88,7 +88,7 @@ function creatLine() {
     align: 'center',
     color: 'red',
     x: 250,
-    y: getRandomPosLine(0, gElCanvas.height),
+    y: getRandomPosLine(0, gElCanvas.height - 100),
     isDrag: true,
   }
 
@@ -126,4 +126,20 @@ function moveLine(line, dx, dy) {
 
 function _saveMemeToStorage(key, val) {
   saveToStorage(key, val)
+}
+
+// take photo service
+function getMedia(video) {
+  navigator.mediaDevices?.getUserMedia({ video: true }).then((stream) => {
+    video.srcObject = stream
+    video.play()
+  })
+}
+
+function setIsPhoto(value) {
+  gMeme.isPhoto = value
+}
+
+function setVideo(video) {
+  gMeme.video = video
 }

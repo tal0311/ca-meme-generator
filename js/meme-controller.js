@@ -21,11 +21,20 @@ function memeInit() {
 
 function renderMeme() {
   let meme = getMemeForeDisplay()
-  let { selectedImgId, lines } = meme
+  let { selectedImgId, lines, isPhoto, video } = meme
   let img = getImageForDisplay(selectedImgId)
   let { url } = img
 
   // render img and text on canvas export
+
+  if (isPhoto) {
+    gCtx.drawImage(video, 0, 0, gElCanvas.width, gElCanvas.height)
+    lines.forEach((line) => {
+      drawText(line)
+    })
+    return
+  }
+
   var renderImg = new Image()
   renderImg.src = url
   renderImg.onload = () => {
@@ -68,18 +77,63 @@ function onRemoveTxt() {
 
 function onchangeLine() {
   setLineIdx()
-  // let line = getLien()
-  // focusOnline(line)
-  //  renderMeme()
+  let line = getLien()
+  focusOnline(line)
+  // renderMeme()
 }
 
 // !dont work
 function focusOnline(line) {
-  let { x, y, txt, size } = line
-  let width = txt.length * size
   console.log(line)
-  gCtx.fillStyle = '#c2c2c2'
-  gCtx.fillRect(x - width, y - 100, x + 10, y + 20)
+  // gCtx.fillStyle = '#c2c2c2'
+
+  let props = getTxtProps()
+
+  renderRectToLine(props)
+}
+
+function getTxtProps() {
+  let line = getLien()
+  let txtProps = gCtx.measureText(line.txt)
+  console.log('line:', line)
+
+  let height = txtProps.fontBoundingBoxAscent + txtProps.fontBoundingBoxDescent
+  // console.log('height:', height)
+  let width = txtProps.width
+  // console.log('width:', width)
+  let txtLeft = txtProps.actualBoundingBoxLeft
+  // console.log('txtLeft:', txtLeft)
+  let txtRight = txtProps.actualBoundingBoxRight
+  // console.log('txtRight:', txtRight)
+
+  return [{ width, txtLeft, txtRight, height }, { ...line }]
+}
+
+function renderRectToLine(props) {
+  console.log(props)
+  let [txtProps, line] = props
+  console.log(txtProps)
+  console.log(line)
+  let { height, width, txtLeft, txtRight } = txtProps
+  // console.log('txtProps:', txtProps)
+
+  let { x, y, size, align } = line
+  // let { width, txtLeft, txtRight, height } = txtProps
+  gCtx.beginPath()
+
+  gCtx.strokeStyle = 'red'
+
+  console.log('pk')
+
+  if (align === 'right') x = txtRight
+  if (align === 'left') x = txtRight
+  if (align === 'center') x = txtLeft
+
+  gCtx.strokeRect(0, y - height + 10, gElCanvas.width, height)
+  gCtx.closePath()
+  setTimeout(() => {
+    renderMeme()
+  }, 1000)
 }
 
 function onTxtAline(value) {
@@ -156,8 +210,9 @@ function onMove(ev) {
   const line = getLien()
   if (line.isDrag) {
     const pos = getEvPos(ev)
-    const dx = pos.x - gStartPos.x
-    const dy = pos.y - gStartPos.y
+    let { x, y } = pos
+    const dx = x - gStartPos.x
+    const dy = y - gStartPos.y
     moveLine(line, dx, dy)
     gStartPos = pos
     renderMeme()
@@ -165,8 +220,9 @@ function onMove(ev) {
 }
 
 function onUp() {
+  console.log('up')
   setLineDrag(false)
-  document.body.style.cursor = 'grab'
+  document.body.style.cursor = 'pointer'
 }
 
 // get pos of event
@@ -190,6 +246,25 @@ function getEvPos(ev) {
 function downloadImg(elLink) {
   var imgContent = gElCanvas.toDataURL('image/jpeg')
   elLink.href = imgContent
+}
+
+// take photo
+function onUseCamera() {
+  console.log('ok')
+  let elVideoContainer = document.querySelector('.video-container')
+  elVideoContainer.style.opacity = '1'
+  let video = document.querySelector('#video')
+  getMedia(video)
+}
+
+function onTakePhoto() {
+  console.log('take photo')
+  // let elTakePhotoBtn= document.querySelector('button .take-photo')
+  let video = document.querySelector('#video')
+  setIsPhoto(true)
+  setVideo(video)
+  renderMeme()
+  console.log(video)
 }
 
 // function resizeCanvas() {
