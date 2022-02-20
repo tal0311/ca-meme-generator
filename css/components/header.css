@@ -7,15 +7,31 @@
   align-items: center;
 }
 
-.logo {
-  padding: 1.5rem 0;
-  color: var(--primaryTxtClr);
-}
-
 .links-container > *:not(.active) {
   color: var(--primaryTxtClr);
 }
 
 .active {
-  color: #000;
+  color: #333;
+  text-decoration: underline;
+}
+
+header span {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.slide-bottom {
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* animation for span */
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }

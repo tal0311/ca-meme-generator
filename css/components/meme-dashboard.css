@@ -1,5 +1,16 @@
 .meme-dashboard {
-  padding: 30px;
+  max-height: 60vh;
+  background-color: var(--mainBgClr);
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.meme-dashboard canvas {
+  border: 2px solid #fff;
+}
+
+.meme-dashboard.video-active .meme-dashboard {
+  max-width: 100vh;
 }
 
 .meme-dashboard.flex {
@@ -17,6 +28,7 @@
 }
 
 .control-panel.flex input:not([type='color']) {
+  background-color: rgb(214, 214, 214);
   width: 100%;
   font-size: 2rem;
   border-radius: 10px;
@@ -30,17 +42,19 @@
   margin-bottom: 1.6875rem;
 }
 .first-panel.flex > * {
-  margin-inline: 1.125rem;
+  margin-inline: 1rem;
 }
 
 .second-panel.flex {
+  /* background-color: antiquewhite; */
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .second-panel.flex > * {
-  margin: 1.125rem;
+  margin: 0.55rem;
+  margin-bottom: 1rem;
 }
 
 .second-panel.flex select {
@@ -77,6 +91,6 @@ video {
 }
 
 .share-container .fa-brands {
-  color: blue;
+  color: rgba(0, 0, 255, 0.768);
   font-size: 3.4375rem;
 }

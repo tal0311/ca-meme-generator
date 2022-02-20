@@ -9,20 +9,16 @@ nav > * {
 nav.flex {
   justify-content: space-between;
 }
-nav .random-meme {
-  font-size: 0.8rem;
-  border-radius: 20px;
-  border: 1px solid white;
-  background-color: var(--primaryClr);
-  width: 5rem;
-  color: #ffff;
-}
 
+.search-container {
+  width: 25%;
+}
 .search-container input {
   font-size: 1rem;
   border: none;
   border-bottom: 1px solid #333;
   padding-top: 2rem;
+  width: 100%;
 }
 
 .search-container input:focus::placeholder {

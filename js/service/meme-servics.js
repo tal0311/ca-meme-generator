@@ -9,9 +9,9 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: 'NEW LINE',
+      txt: "add you'r text",
       size: 45,
-      align: 'center',
+      align: 'right',
       color: 'red',
       x: 250,
       y: 50,
@@ -64,26 +64,15 @@ function getImageForDisplay(idx) {
   return img
 }
 
-function setLineTxt(value, keyCode) {
-  let txt = gMeme.lines[gMeme.selectedLineIdx].txt
-
-  if (keyCode === 8) {
-    txt = txt.substring(0, txt.length - 1)
-
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt
-  } else if (keyCode === 13) return
-  else if ((keyCode >= 65 && keyCode <= 90) || keyCode === 32) {
-    gMeme.lines[gMeme.selectedLineIdx].txt += value
-  }
+function setLineTxt(value) {
+  console.log(value)
+  let line = getLien()
+  line.txt = value
 }
-
-// function setMemeIdx() {
-//   console.log('change meme idx')
-// }
 
 function creatLine() {
   let line = {
-    txt: 'NEW LINE',
+    txt: 'add your text',
     size: 45,
     align: 'center',
     color: 'red',

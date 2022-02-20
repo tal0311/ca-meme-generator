@@ -6,10 +6,7 @@ var gStartPos
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 // !always render here
 function memeInit() {
-  document.querySelector('.meme-dashboard').hidden = false
-  document.querySelector('.owner').style.display = 'none'
-  document.querySelector('nav').style.display = 'none'
-  document.querySelector('.gallery-active').classList.remove('active')
+  toggleDashBard()
 
   gElCanvas = document.querySelector('canvas')
 
@@ -17,6 +14,38 @@ function memeInit() {
 
   addListeners()
   renderMeme()
+}
+function toggleDashBard() {
+  let elBody = document.querySelector('body')
+
+  console.log(elBody.classList.toggle('dashboard-open'))
+
+  if (elBody.classList.contains('dashboard-open')) {
+    console.log('open dashbord')
+    document.querySelector('.gallery').style.display = 'none'
+    document
+      .querySelector('.links-container [title="gallery"]')
+      .classList.remove('active')
+
+    document
+      .querySelector('.links-container [title="pick image from gallery"]')
+      .classList.add('active')
+    document.querySelector('.meme-dashboard').hidden = false
+    document.querySelector('.owner').style.display = 'none'
+    document.querySelector('nav').style.display = 'none'
+  } else {
+    console.log('ok')
+    document.querySelector('.gallery').style.display = 'block'
+    document
+      .querySelector('.links-container [title="gallery"]')
+      .classList.add('active')
+    document
+      .querySelector('.links-container [title="pick image from gallery"]')
+      .classList.remove('active')
+    document.querySelector('.meme-dashboard').hidden = true
+    document.querySelector('.owner').style.display = 'flex'
+    document.querySelector('nav').style.display = 'block'
+  }
 }
 
 function renderMeme() {
@@ -141,10 +170,11 @@ function onTxtAline(value) {
   renderMeme()
 }
 
-function onSetLineText(ev) {
-  let value = ev.key
-  let KeyCode = ev.keyCode
-  setLineTxt(value, KeyCode)
+function onSetLineText(value) {
+  setLineTxt(value)
+  // let value = ev.key
+  // let KeyCode = ev.keyCode
+  // setLineTxt(value, KeyCode)
 
   renderMeme()
 }
@@ -170,7 +200,11 @@ function addListeners() {
   let elColorInput = document.querySelector('input[name="color"]')
   elColorInput.addEventListener('input', (event) => onColorPIcked(event))
 
-  document.addEventListener('keydown', (event) => onSetLineText(event))
+  let elTxtInput = document.querySelector('input[name="line"]')
+  console.log(elTxtInput)
+  elTxtInput.addEventListener('keyup', function () {
+    onSetLineText(this.value)
+  })
   let elSelection = document.querySelector('.font-style')
   elSelection.addEventListener('change', (event) =>
     onChangeFontFamily(event.target.value)
@@ -178,13 +212,12 @@ function addListeners() {
 
   addMouseListeners()
   addTouchListeners()
-  // window.addEventListener('resize', () => {
-  //   resizeCanvas()
-  //   renderMeme()
-  // })
 }
 
 function addMouseListeners() {
+  document
+    .querySelector('[title="gallery"]')
+    .addEventListener('click', toggleDashBard)
   gElCanvas.addEventListener('mousemove', onMove)
   gElCanvas.addEventListener('mousedown', onDown)
   gElCanvas.addEventListener('mouseup', onUp)
@@ -250,11 +283,20 @@ function downloadImg(elLink) {
 
 // take photo
 function onUseCamera() {
-  console.log('ok')
-  let elVideoContainer = document.querySelector('.video-container')
-  elVideoContainer.style.opacity = '1'
+  toggleVideo()
   let video = document.querySelector('#video')
   getMedia(video)
+}
+function toggleVideo() {
+  let elVideoContainer = document.querySelector('.video-container')
+  let elDashboard = document.querySelector('.meme-dashboard')
+  elDashboard.classList.toggle('video-active')
+
+  if (elDashboard.classList.contains('video-active')) {
+    elVideoContainer.style.opacity = '1'
+  } else {
+    elVideoContainer.style.opacity = '0'
+  }
 }
 
 function onTakePhoto() {

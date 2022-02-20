@@ -34,8 +34,7 @@ function renderDataList() {
 }
 function onImgSelect(id) {
   setImg(+id)
-  let ElGallery = document.querySelector('.gallery')
-  ElGallery.style.display = 'none'
+
   memeInit()
 }
 

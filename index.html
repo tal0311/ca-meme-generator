@@ -22,9 +22,15 @@
       <header class="header">
         <div class="header-container main-layout flex">
           <h1 class="logo">memegen</h1>
+          <span class="slide-bottom">
+            Crate your meme, surprise your friends</span
+          >
           <div class="links-container">
-            <a href="#" class="gallery-active active">gallery</a> |
-            <a href="#">about</a>
+            <a title="gallery" href="#" class="gallery-active active"
+              >gallery</a
+            >
+            | <a title="about the developer" href="#about">about</a> |
+            <a title="pick image from gallery" href="#">Meme</a>
           </div>
         </div>
       </header>
@@ -34,13 +40,17 @@
         <div class="search-container">
           <input
             list="key-words-container"
-            placeholder="search by topic"
+            placeholder="Search by topic"
             onchange="onDataListSort(value)"
           />
           <datalist id="key-words-container"> </datalist>
         </div>
-        <button class="random-meme" onclick="onImFlexible()">
-          im flexible
+        <button
+          title="random image from gallery"
+          class="random-meme"
+          onclick="onImFlexible()"
+        >
+          Im <br />flexible
         </button>
 
         <!-- data list -->
@@ -55,12 +65,12 @@
             <div class="inputs-container">
               <input type="text" name="line" />
               <div class="first-panel flex">
-                <button onclick="onAddLIne()">+</button>
+                <button class="fa-solid fa-plus" onclick="onAddLIne()"></button>
                 <button
                   class="fa-solid fa-trash-can"
                   onclick="onRemoveTxt()"
                 ></button>
-                <button onclick="onchangeLine()">^</button>
+                <button onclick="onchangeLine()">&#8213;</button>
               </div>
 
               <div class="second-panel flex">
@@ -121,7 +131,7 @@
           </div>
         </div>
       </div>
-      <div class="owner main-layout flex" hidden>
+      <div id="about" class="owner main-layout flex" hidden>
         <img src="./img/tal-profile.jpg" alt="" />
         <div class="owner-content flex">
           <h4>Tal Amit</h4>
