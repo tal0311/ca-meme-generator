@@ -1,5 +1,5 @@
 .meme-dashboard {
-  max-height: 60vh;
+  max-height: 65vh;
   background-color: var(--mainBgClr);
   margin-top: 2rem;
   padding: 2rem;
@@ -46,7 +46,6 @@
 }
 
 .second-panel.flex {
-  /* background-color: antiquewhite; */
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
@@ -90,7 +89,15 @@ video {
   margin: auto;
 }
 
-.share-container .fa-brands {
+.share-container .fa-brands.fa-facebook-square {
   color: rgba(0, 0, 255, 0.768);
   font-size: 3.4375rem;
+}
+.share-container .fa-brands.fa-whatsapp-square {
+  color: rgba(12, 191, 78, 0.768);
+  font-size: 3.4375rem;
+}
+
+.share-container > *:not(a:first-of-type) {
+  margin-inline-start: 1rem;
 }

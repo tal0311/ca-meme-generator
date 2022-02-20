@@ -29,3 +29,11 @@ nav.flex {
 .search-container input:focus {
   outline: none;
 }
+
+nav .word-cloud > * {
+  margin-inline-start: 10px;
+}
+
+.word-cloud {
+  align-self: center;
+}

@@ -1,5 +1,7 @@
 var gSortBy = null
 
+var gWordCloud
+
 var gImgs = [
   { id: 1, url: 'img/1.jpg', keywords: ['trump', 'politics'] },
   { id: 2, url: 'img/2.jpg', keywords: ['puppy', 'cute'] },
@@ -35,6 +37,10 @@ function getImagesForGallery() {
     return filtered
   }
   return gImgs
+}
+
+function getWordCloudForDisplay() {
+  return getOptionsForData()
 }
 
 function getOptionsForData() {

@@ -1,0 +1,4 @@
+.grid-container .grid-item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}

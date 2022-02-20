@@ -11,9 +11,9 @@ var gMeme = {
     {
       txt: "add you'r text",
       size: 45,
-      align: 'right',
+      align: 'center',
       color: 'red',
-      x: 250,
+      x: 200,
       y: 50,
     },
   ],
@@ -104,7 +104,6 @@ function setLineDrag(isDrag) {
 
 function getLien() {
   const currLine = gMeme.lines[gMeme.selectedLineIdx]
-  // console.log('curr line:', currLine)
   return currLine
 }
 

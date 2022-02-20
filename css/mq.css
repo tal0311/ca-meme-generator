@@ -19,6 +19,9 @@
   .search-container input::placeholder {
     font-size: 0.8rem;
   }
+  .word-cloud {
+    display: none;
+  }
   nav .random-meme {
     font-size: 1em;
     border-radius: 1.5em;
@@ -176,6 +179,19 @@
       'nav nav nav'
       'main main main'
       'owner owner owner'
+      'footer footer footer';
+  }
+
+  body.dashboard-open .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6.125rem 5.625rem 58.25rem 12.9375rem;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'header header header'
+      'nav nav nav'
+      'main main main'
       'footer footer footer';
   }
 

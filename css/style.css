@@ -5,6 +5,7 @@
 /* vars */
 @import './vars.css';
 /* components */
+
 @import './components/header.css';
 @import './components/nav.css';
 @import './components/main.css';
@@ -13,5 +14,5 @@
 @import './components/meme-dashboard.css';
 @import './components/control-panel.css';
 /* grid */
-@import './components/grid.css';
+
 @import './mq.css';
