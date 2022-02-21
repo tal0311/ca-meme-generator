@@ -9,7 +9,7 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "add you'r text",
+      txt: 'add text',
       size: 45,
       align: 'center',
       color: 'red',
