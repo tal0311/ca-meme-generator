@@ -32,6 +32,7 @@ nav.flex {
 
 nav .word-cloud > * {
   margin-inline-start: 10px;
+  cursor: pointer;
 }
 
 .word-cloud {
