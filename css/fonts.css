@@ -1,16 +1,6 @@
 @font-face {
   font-family: montserrat-bold;
 <<<<<<< HEAD
-  src: url('/fonts/Montserrat-Bold.ttf');
-}
-@font-face {
-  font-family: montserrat-regular;
-  src: url('/fonts/Montserrat-Regular.ttf');
-}
-@font-face {
-  font-family: eczar;
-  src: url('/fonts/Eczar-Bold.ttf');
-=======
   src: url('fonts/Montserrat-Bold.ttf');
 }
 @font-face {
@@ -20,5 +10,4 @@
 @font-face {
   font-family: eczar;
   src: url('fonts/Eczar-Bold.ttf');
->>>>>>> 2f29f2abf060824e23aca85abc56c34efd603763
-}
+=======
